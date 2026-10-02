@@ -1,0 +1,48 @@
+#upsquare{
+    background-color: rgb(0, 0, 0);
+    height: 100px;
+    width: auto;
+    position:sticky;
+    top: 0px;
+    overflow: hidden;
+    
+    
+}
+
+#navigationmenu{
+    background-color: rgb(30, 29, 29) ;
+    color: white;
+    height: 50px;
+    width: auto;
+    position:sticky;
+    top: 100px;
+    overflow: hidden;
+
+    
+
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#topsell{
+color: #800020;
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+text-align: center;
+margin-bottom: 50px;
+}
+
+#sales{
+    background-color: transparent;
+    margin: 0px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    top: 40px;
+    left: 1000px;
+    
+}
+
+/*background shits*/  
