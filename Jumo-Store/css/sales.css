@@ -1,124 +1,426 @@
-a{
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
     text-decoration: none;
     color: inherit;
+    font-family: inherit;
 }
 
-#upsquare{
+#upsquare {
     background-color: rgb(0, 0, 0);
     height: 50px;
-    width: auto;
-    position:sticky;
-    top: 0px;
-    
-    overflow: hidden;
+    width: 100%;
+    position: sticky;
+    top: 0;
     z-index: 1000;
-    
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 30px;
+    box-sizing: border-box;
 }
 
-#navigationmenu{
-    background-color: rgb(30, 29, 29) ;
-    color: white;
-    height: 50px;
+#logo {
+    height: 45px;
     width: auto;
-    position:sticky;
-    top: 50px;
-    margin-top: 0px;
-    overflow: hidden;
-    z-index: 1000;
-
-    
-
+    display: block;
+    margin: 0;
 }
 
-body{
-    margin: 0px;
-    padding: 0px;
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
-#topsell{
-color: #800020;
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-text-align: center;
-margin-bottom: 50px;
-}
-
-#sales{
+#sales {
     background-color: transparent;
-    margin: 0px;
+    margin: 0;
     color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+#sales:hover {
+    color: #800020;
+    cursor: pointer;
+}
+
+.search-input {
+    background-color: #1f1f1f;
+    border: 1px solid #333333;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: 'Lucida Sans', sans-serif;
+    outline: none;
+    width: 140px;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #888888;
+}
+
+.search-input:focus {
+    border-color: #800020;
+    width: 180px;
+    background-color: #2b2b2b;
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: white;
+    background-color: #1f1f1f;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #333333;
+    transition: background-color 0.2s ease;
+}
+
+.cart-link:hover {
+    background-color: #2b2b2b;
+}
+
+.cart-icon {
+    font-size: 16px;
+}
+
+.cart-count {
+    background-color: #800020;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 50%;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+#navigationmenu {
+    background-color: rgb(30, 29, 29);
+    height: 50px;
+    width: 100%;
+    position: sticky;
+    top: 50px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+#navigationmenu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+#navigationmenu a:hover {
+    color: #800020;
+}
+
+main {
+    width: 100%;
+}
+
+.home-banner {
     position: relative;
-    top: 20px;
-    left: 1000px;
-    
+    width: min(90%, 1100px);
+    margin: 30px auto;
 }
 
-/*background shits*/  
-
-.productos{
-position: relative;
-display:flex; 
-flex-wrap: wrap;
-align-items:flex-end;
-  flex-direction: row;     
-  justify-content:center; 
-  gap: 200px;
-  object-fit: contain;
-  justify-content: center;
-  row-gap: 100px ;
-  column-gap: 200px;
-  left: 100px;
-
+.banner-window {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1100 / 360;
+    background: #171717;
+    border-radius: 12px;
 }
 
-.romo{
+.banner-slide {
+    position: absolute;
+    inset: 0;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 450ms ease;
+}
+
+.banner-slide.is-active {
+    z-index: 1;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.banner-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-control {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.72);
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.banner-previous {
+    left: 16px;
+}
+
+.banner-next {
+    right: 16px;
+}
+
+.banner-control:hover {
+    background: #800020;
+}
+
+.banner-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.banner-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.banner-dot.is-active {
+    background: white;
+}
+
+#topsell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 48px 0;
+    color: #222222;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#topsell::before,
+#topsell::after {
+    content: "";
+    width: 70px;
+    height: 2px;
+    background-color: #800020;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 230px);
+    justify-content: center;
+    column-gap: 180px;
+    row-gap: 80px;
+    padding: 0 24px;
+}
+
+.products > div {
+    width: 230px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.products > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.products > div:hover .romo {
+    transform: scale(1.05);
+}
+
+.romo {
+    display: block;
     width: 200px;
     height: 250px;
-    position: relative;
-    left: 25px;
+    object-fit: contain;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.letters {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
+    font-weight: 900;
+    color: #111111;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    min-height: 2.4em;
+    margin: 12px 0 8px;
 }
 
+.price-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
+.original-price {
+    text-decoration: line-through;
+    color: #d33b3b;
+    font-weight: 700;
+}
 
-.view{
-    background: black;
+.current-price {
+    color: #111111;
+    font-weight: 700;
+}
+
+.discount-badge {
+    display: inline-block;
+    background-color: #800020;
     color: white;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-radius: 10px;
-    position: relative;
-    left: 110px;
-    width: 80px;
-    height: 60px;
-    /*bottom: 50px;
-    */
-    
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
 }
 
-.sale{
-    text-decoration: line-through red;
-    color: red;
-
+.schedule {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-top: 60px;
+    padding-bottom: 300px;
+    box-sizing: border-box;
 }
-#descuento{
-    background-color: red;
+
+.schedule img {
+    display: block;
+    width: 100%;
+    height: 78vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.schedule-directions {
+    display: inline-block;
+    padding: 13px 22px;
+    background: #800020;
+    color: white;
+    font-weight: bold;
     text-align: center;
-    width: 100px;
+    text-decoration: none;
+}
+
+.schedule-directions:hover {
+    background: #5f0018;
+}
+
+.site-footer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+    padding: 40px 24px 124px;
+    background: #171717;
     color: white;
-    border-radius: 3px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
+    margin-top: -100px;
 }
 
-#letters{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
-.productos > div{
-  width: calc(25% - 20px); /* Sets exactly 4 columns (use 33.333% for 3 columns) */
-  box-sizing: border-box;
+.footer-column h2 {
+    margin: 0 0 14px;
+    color: #e3b95e;
+    font-size: 16px;
+}
 
+.footer-column a {
+    color: #f3f3f3;
+    font-size: 14px;
+    line-height: 1.7;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #800020;
+}
+
+@media (max-width: 700px) {
+    .site-footer {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner-window {
+        aspect-ratio: 4 / 3;
+    }
+
+    #navigationmenu {
+        gap: 24px;
+    }
+
+    .header-right {
+        gap: 12px;
+    }
 }
