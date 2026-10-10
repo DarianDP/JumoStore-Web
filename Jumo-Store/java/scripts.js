@@ -1,6 +1,47 @@
 
 (() => {
+    document.querySelectorAll(".products a").forEach(link => {
+        const image = link.querySelector("img");
+        const name = link.querySelector("h3, .letters")?.textContent.trim();
+        const category = document.querySelector("#topsell")?.textContent.trim();
+
+        if (!image || !name) return;
+
+        const params = new URLSearchParams({
+            name,
+            image: image.getAttribute("src"),
+            category: category || ""
+        });
+        const salePrice = link.querySelector(".current-price")?.textContent.trim();
+        const originalPrice = link.querySelector(".original-price")?.textContent.trim();
+        const regularPrice = Array.from(link.querySelectorAll("h3"))
+            .map(heading => heading.textContent.trim())
+            .find(text => /^RD\$/.test(text));
+        const price = salePrice || regularPrice;
+
+        if (price) params.set("price", price);
+        if (originalPrice) params.set("originalPrice", originalPrice);
+
+        link.href = `product.html?${params.toString()}`;
+    });
+
+    document.querySelectorAll(".cart-link").forEach(link => {
+        link.href = "cart.html";
+        try {
+            const savedCart = localStorage.getItem("jumostore-cart");
+            const cart = savedCart ? JSON.parse(savedCart) : [];
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const countElement = link.querySelector(".cart-count");
+            if (countElement) countElement.textContent = count;
+        } catch {
+            const countElement = link.querySelector(".cart-count");
+            if (countElement) countElement.textContent = "!";
+        }
+    });
+
     const carousel = document.querySelector(".home-banner");
+    if (!carousel) return;
+
     const slides = Array.from(carousel.querySelectorAll(".banner-slide"));
     const dots = Array.from(carousel.querySelectorAll(".banner-dot"));
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");

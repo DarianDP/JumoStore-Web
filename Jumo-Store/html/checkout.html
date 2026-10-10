@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JumoStore | Checkout</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <script src="../java/checkout.js" defer></script>
+</head>
+<body>
+
+<div id="upsquare">
+    <a href="home.html">
+        <img src="../css/images/Gemini_Generated_Image_rucij3rucij3ruci.jpeg"
+             alt="Jumo Store logo" id="logo">
+    </a>
+    <div class="header-right">
+        <a href="home.html"><h3 id="sales">HOME</h3></a>
+        <a href="Sales.html"><h3 id="sales">SALES</h3></a>
+        <input type="text" placeholder="Search..." class="search-input" aria-label="Search products">
+        <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count">0</span>
+        </a>
+    </div>
+</div>
+
+<div id="navigationmenu">
+    <a href="Cerveza.html">CERVEZA</a>
+    <a href="Vines.html">VINO</a>
+    <a href="ron.html">RON</a>
+    <a href="whisky.html">WHISKY</a>
+</div>
+
+<main class="checkout-page">
+    <h1 id="topsell">Review your order</h1>
+    <p class="checkout-error" id="checkout-error" role="alert" hidden></p>
+    <p class="checkout-empty" id="checkout-empty" hidden>Your cart is empty. Add products before checkout.</p>
+    <div class="checkout-items" id="checkout-items"></div>
+    <p class="checkout-total" id="checkout-total" hidden></p>
+    <p class="checkout-note" id="checkout-note" hidden>
+        No tenemo base de datos pa,ni se de api
+    </p>
+    <a class="checkout-back" href="cart.html">Back to cart</a>
+</main>
+
+<footer class="site-footer">
+    <section class="footer-column">
+        <h2>Information</h2>
+        <a href="">Contact</a>
+        <a href="">About Us</a>
+        <a href="">Privacy Policy</a>
+        <a href="">Terms and Conditions</a>
+        <a href="">Terms of Service</a>
+        <a href="">Refund Policy</a>
+    </section>
+    <section class="footer-column">
+        <h2>Help &amp; Support</h2>
+        <a href="">Shipping &amp; Delivery</a>
+        <a href="">Shipping Areas</a>
+        <a href="">Payment Methods</a>
+        <a href="">Frequently Asked Questions</a>
+        <a href="">Returns &amp; Refunds</a>
+    </section>
+    <section class="footer-column">
+        <h2>Address</h2>
+        <a href="https://maps.app.goo.gl/K2VzsKiM4mAjmBACA"
+           target="_blank" rel="noopener noreferrer">G244+M62, Copeyito 33000</a>
+    </section>
+</footer>
+
+</body>
+</html>
