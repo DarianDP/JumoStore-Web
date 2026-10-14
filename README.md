@@ -47,3 +47,10 @@ Because this project uses vanilla web technologies, running it locally is very s
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/dariandp/JumoStore-Web.git](https://github.com/dariandp/JumoStore-Web.git)
+
+
+##👤 Author
+
+Darian Diaz
+
+GitHub: @DarianDP
