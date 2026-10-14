@@ -49,7 +49,7 @@ Because this project uses vanilla web technologies, running it locally is very s
    git clone [https://github.com/dariandp/JumoStore-Web.git](https://github.com/dariandp/JumoStore-Web.git)
 
 
-##👤 Author
+## 👤 Author
 
 Darian Diaz
 
